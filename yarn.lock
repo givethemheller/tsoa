@@ -1430,6 +1430,13 @@
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-5.2.7.tgz#315d570ccb56c53452ff8638738df60726d5b6ea"
   integrity sha512-NYrtPht0wGzhwe9+/idPaBB+TqkY9AhTvOLMkThm0IoEfLaiVQZwBwyJ5puCkO3AUCWrmcoePjp2mbFocKy4SQ==
 
+"@types/nanoid@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@types/nanoid/-/nanoid-1.0.0.tgz#d67190bf0a6661b42eb86f6949534606959fd3a1"
+  integrity sha512-iMZIqTO1KxByOtwG2abOp2fufp9+rnwzCnX5LWp+h4JyX8Fw9/vKOPJ35Po9HFReuiq2yDGl4qdKJ3KS/RF9Xw==
+  dependencies:
+    "@types/node" "*"
+
 "@types/node@*":
   version "13.9.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-13.9.1.tgz#96f606f8cd67fb018847d9b61e93997dabdefc72"
@@ -5144,6 +5151,11 @@ mz@^2.5.0:
     any-promise "^1.0.0"
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
+
+nanoid@^3.1.16:
+  version "3.1.16"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.16.tgz#b21f0a7d031196faf75314d7c65d36352beeef64"
+  integrity sha512-+AK8MN0WHji40lj8AEuwLOvLSbWYApQpre/aFJZD71r43wVRLrOYS4FmJOPQYon1TqB462RzrrxlfA74XRES8w==
 
 nanomatch@^1.2.9:
   version "1.2.13"

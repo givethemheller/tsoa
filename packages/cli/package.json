@@ -36,6 +36,7 @@
     "merge": "^1.2.1",
     "minimatch": "^3.0.4",
     "moment": "^2.24.0",
+    "nanoid": "^3.1.16",
     "typescript": "^3.9.2",
     "validator": "^12.2.0",
     "yamljs": "^0.3.0",
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "@types/minimatch": "^3.0.3",
+    "@types/nanoid": "1.0.0",
     "@types/node": "^14.11.1",
     "@types/yamljs": "^0.2.30",
     "@types/yargs": "^13.0.2",

@@ -5,6 +5,7 @@ import { GenerateMetadataError } from './exceptions';
 import { getInitializerValue } from './initializer-value';
 import { MetadataGenerator } from './metadataGenerator';
 import { Tsoa, assertNever } from '@tsoa/runtime';
+import { nanoid } from 'nanoid';
 
 const localReferenceTypeCache: { [typeName: string]: Tsoa.ReferenceType } = {};
 const inProgressTypes: { [typeName: string]: boolean } = {};
@@ -590,7 +591,7 @@ export class TypeResolver {
   }
 
   private getRefTypeName(name: string): string {
-    return encodeURIComponent(
+    const output = encodeURIComponent(
       name
         .replace(/<|>/g, '_')
         .replace(/\s+/g, '')
@@ -605,6 +606,7 @@ export class TypeResolver {
         .replace(/;/g, '--')
         .replace(/([a-z]+)\[([a-z]+)\]/gi, '$1-at-$2'), // Partial_SerializedDatasourceWithVersion[format]_ -> Partial_SerializedDatasourceWithVersion~format~_,
     );
+    return output.length > 50 ? this.getRefTypeName(name).slice(0, 50) + nanoid() : this.getRefTypeName(name);
   }
 
   private attemptToResolveKindToPrimitive = (syntaxKind: ts.SyntaxKind): ResolvesToPrimitive | DoesNotResolveToPrimitive => {
