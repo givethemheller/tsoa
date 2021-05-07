@@ -1,8 +1,10 @@
+import { ObjectId } from 'bson';
 import { TestClassModel, TestModel, TestSubModel } from '../testModel';
 
 export class ModelService {
   public getModel(): TestModel {
     return {
+      fun: new ObjectId(),
       and: { value1: 'foo', value2: 'bar' },
       boolArray: [true, false],
       boolValue: true,

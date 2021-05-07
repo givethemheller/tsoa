@@ -1,3 +1,4 @@
+import { ObjectId } from "bson";
 /**
  * This is a description of a model
  * @tsoaModel
@@ -26,6 +27,7 @@
  * }
  */
 export interface TestModel extends Model {
+  fun: ObjectId;
   and: TypeAliasModel1 & TypeAliasModel2;
   /**
    * This is a description of this model property, numberValue

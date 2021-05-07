@@ -1,3 +1,4 @@
+import { ObjectId } from 'bson';
 import { expect } from 'chai';
 import 'mocha';
 import * as request from 'supertest';
@@ -494,6 +495,7 @@ describe('Koa Server (with noImplicitAdditionalProperties turned on)', () => {
 
   function getFakeModel(): TestModel {
     return {
+      fun: new ObjectId(),
       and: { value1: 'foo', value2: 'bar' },
       boolArray: [true, false],
       boolValue: false,

@@ -1,10 +1,11 @@
 ///<reference path="../tsoaTestModule.d.ts" />
+import { Controller, Example, Get, OperationId, Query, Request, Res, Route, SuccessResponse, Tags, TsoaResponse } from '@tsoa/runtime';
+import { ObjectId } from 'bson';
 import { Readable } from 'stream';
-import { Controller, Example, Get, OperationId, Query, Request, Route, SuccessResponse, Tags, Res, TsoaResponse } from '@tsoa/runtime';
-import '../duplicateTestModel';
-import { GenericModel, GetterClass, GetterInterface, GetterInterfaceHerited, TestClassModel, TestModel, TestSubModel, SimpleClassWithToJSON } from '../testModel';
-import { ModelService } from './../services/modelService';
 import TsoaTest from 'tsoaTest';
+import '../duplicateTestModel';
+import { GenericModel, GetterClass, GetterInterface, GetterInterfaceHerited, SimpleClassWithToJSON, TestClassModel, TestModel, TestSubModel } from '../testModel';
+import { ModelService } from './../services/modelService';
 
 @Route('GetTest')
 export class GetTestController extends Controller {
@@ -15,6 +16,7 @@ export class GetTestController extends Controller {
   @Get()
   @SuccessResponse('200', 'Returns TestModel')
   @Example<TestModel>({
+    fun: new ObjectId(),
     and: { value1: 'foo', value2: 'bar' },
     boolArray: [true, false],
     boolValue: true,

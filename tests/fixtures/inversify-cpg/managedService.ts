@@ -1,3 +1,4 @@
+import { ObjectId } from 'bson';
 import { provide } from 'inversify-binding-decorators';
 import { TestModel, TestSubModel } from '../testModel';
 
@@ -5,6 +6,7 @@ import { TestModel, TestSubModel } from '../testModel';
 export class ManagedService {
   public getModel(): TestModel {
     return {
+      fun: new ObjectId(),
       and: { value1: 'foo', value2: 'bar' },
       boolArray: [true, false],
       boolValue: true,

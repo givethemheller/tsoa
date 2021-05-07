@@ -1,3 +1,4 @@
+import { ObjectId } from 'bson';
 import { expect } from 'chai';
 import 'mocha';
 import 'reflect-metadata';
@@ -23,6 +24,7 @@ describe('Inversify Express Server', () => {
     // hook in a new getModel method returning id = 2
     managedService.getModel = () => {
       return {
+        fun: new ObjectId(),
         and: { value1: 'foo', value2: 'bar' },
         boolArray: [true, false],
         boolValue: true,

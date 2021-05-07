@@ -1,12 +1,11 @@
+import { ExtendedSpecConfig } from '@tsoa/cli/cli';
+import { MetadataGenerator } from '@tsoa/cli/metadataGeneration/metadataGenerator';
+import { SpecGenerator3 } from '@tsoa/cli/swagger/specGenerator3';
+import { Swagger, Tsoa } from '@tsoa/runtime';
 import { expect } from 'chai';
 import 'mocha';
-import { MetadataGenerator } from '@tsoa/cli/metadataGeneration/metadataGenerator';
-import { Tsoa } from '@tsoa/runtime';
-import { SpecGenerator3 } from '@tsoa/cli/swagger/specGenerator3';
-import { Swagger } from '@tsoa/runtime';
 import { getDefaultExtendedOptions } from '../../fixtures/defaultOptions';
 import { TestModel } from '../../fixtures/testModel';
-import { ExtendedSpecConfig } from '@tsoa/cli/cli';
 
 describe('Definition generation for OpenAPI 3.0.0', () => {
   const metadataGet = new MetadataGenerator('./fixtures/controllers/getController.ts').Generate();
@@ -763,6 +762,9 @@ describe('Definition generation for OpenAPI 3.0.0', () => {
          * By creating a record of "keyof T" we ensure that contributors will need add a test for any new property that is added to the model
          */
         const assertionsPerProperty: Record<keyof TestModel, (propertyName: string, schema: Swagger.Schema3) => void> = {
+          fun: () => {
+            expect(true).to.equal(true)
+          },
           id: (propertyName, propertySchema) => {
             // should generate properties from extended interface
             expect(propertySchema.type).to.eq('number', `for property ${propertyName}.type`);

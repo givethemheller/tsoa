@@ -1,9 +1,12 @@
+import { File } from '@tsoa/runtime';
+import { ObjectId } from 'bson';
 import { expect } from 'chai';
+import { readFileSync } from 'fs';
 import 'mocha';
+import { resolve } from 'path';
 import * as request from 'supertest';
 import { base64image } from '../fixtures/base64image';
 import { app } from '../fixtures/express/server';
-import { File } from '@tsoa/runtime';
 import {
   Gender,
   GenericModel,
@@ -14,10 +17,8 @@ import {
   UserResponseModel,
   ValidateMapStringToAny,
   ValidateMapStringToNumber,
-  ValidateModel,
+  ValidateModel
 } from '../fixtures/testModel';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
 
 const basePath = '/v1';
 
@@ -1415,6 +1416,7 @@ describe('Express Server', () => {
 
   function getFakeModel(): TestModel {
     return {
+      fun: new ObjectId(),
       and: { value1: 'foo', value2: 'bar' },
       boolArray: [true, false],
       boolValue: false,

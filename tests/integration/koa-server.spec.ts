@@ -1,11 +1,12 @@
+import { File } from '@tsoa/runtime';
+import { ObjectId } from 'bson';
 import { expect } from 'chai';
+import { readFileSync } from 'fs';
 import 'mocha';
+import { resolve } from 'path';
 import * as request from 'supertest';
 import { server } from '../fixtures/koa/server';
 import { Gender, GenericModel, GenericRequest, Model, ParameterTestModel, TestClassModel, TestModel, ValidateMapStringToAny, ValidateMapStringToNumber, ValidateModel } from '../fixtures/testModel';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-import { File } from '@tsoa/runtime';
 
 const basePath = '/v1';
 
@@ -1246,6 +1247,7 @@ describe('Koa Server', () => {
 
   function getFakeModel(): TestModel {
     return {
+      fun: new ObjectId(),
       and: { value1: 'foo', value2: 'bar' },
       boolArray: [true, false],
       boolValue: false,

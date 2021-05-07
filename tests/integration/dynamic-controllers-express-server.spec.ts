@@ -1,3 +1,4 @@
+import { ObjectId } from 'bson';
 import { expect } from 'chai';
 import 'mocha';
 import * as request from 'supertest';
@@ -13,7 +14,7 @@ import {
   UserResponseModel,
   ValidateMapStringToAny,
   ValidateMapStringToNumber,
-  ValidateModel,
+  ValidateModel
 } from '../fixtures/testModel';
 
 const basePath = '/v1';
@@ -1147,6 +1148,7 @@ describe('Express Server', () => {
 
   function getFakeModel(): TestModel {
     return {
+      fun: new ObjectId(),
       and: { value1: 'foo', value2: 'bar' },
       boolArray: [true, false],
       boolValue: false,
